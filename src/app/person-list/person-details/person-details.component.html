@@ -1,0 +1,58 @@
+
+<!-- 1st STEP -->
+<!-- {{person.name}}
+{{person.middleName}}
+{{person.surname}}<br />
+<span [hidden]="!person.email && !person.phone"> Contacts:
+  {{person.email}}
+  {{person.phone}}
+  <br />
+</span>
+{{person.pid}} <br />
+<span *ngIf="person.groups == null"> None groups</span>
+<span *ngIf="person.groups != null"> {{person.groups.length}} groups: {{person.groups}}</span> -->
+
+<!-- 2nd STEP -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      {{person.pid}}
+    </div>
+    <div class="col-sm">
+      {{person.name}} {{person.middleName}} {{person.surname}}
+    </div>
+
+    <div class="col-sm">
+      <span [hidden]="!person.email && !person.phone"> Contacts:
+        {{person.email}}
+        {{person.phone}}
+      </span>
+      <span *ngIf="!person.email && !person.phone"> - </span>
+    </div>
+    <div class="col-sm">
+      <span *ngIf="person.groups == null"> No groups</span>
+      <span *ngIf="person.groups != null"> {{person.groups.length}}
+        <span *ngIf="person.groups.length != 1; else onlyOneGroup">groups:</span>
+        <ng-template #onlyOneGroup>group:</ng-template>
+        {{person.groups}}
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let p of person">
+    <tr>
+      <td>{{p.name}}</td>
+      <td>{{p.middleName}}</td>
+      <td>@{{p.surname}}</td>
+    </tr>
+  </tbody>
+</table> -->
