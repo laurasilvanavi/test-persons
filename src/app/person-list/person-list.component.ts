@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../models';
+import { PersonsDataService } from '../services/persons-data.service';
 
 @Component({
   selector: 'app-person-list',
@@ -9,11 +10,16 @@ import { Person } from '../models';
 export class PersonListComponent implements OnInit {
 
   persons: Person[];
+  message: string;
 
-  constructor() { }
+  constructor(private data: PersonsDataService) { }
 
   ngOnInit() {
-    this.persons = [{ pid: 10001,
+
+
+    this.data.currentPersonList.subscribe(persons => this.persons = persons);
+    const initList = [{
+      pid: 10001,
       name: 'Petras',
       surname: 'Petrovicius',
       phone: '+37067878787',
@@ -21,27 +27,36 @@ export class PersonListComponent implements OnInit {
       groups: ['SOS', 'Animals help']
 
     },
-    { pid: 10002,
+    {
+      pid: 10002,
       name: 'Kazimieras',
       middleName: 'Jonas',
       surname: 'Petrauskas',
       groups: ['MOPT', 'Important stuff', 'Great day']
 
     },
-    { pid: 10003,
+    {
+      pid: 10003,
       name: 'Elena',
       middleName: 'Ieva',
       surname: 'Elenaite',
       phone: '+37067878787',
 
     },
-    { pid: 10004,
+    {
+      pid: 10004,
       name: 'Irma',
       surname: 'Petroviciene',
       email: 'petrovic.irma@p.lt',
       groups: ['SOS']
     }
-  ];
+    ];
+    this.data.changePersonList(initList);
+  }
+
+  removePersonFromList($event) {
+    this.persons = this.persons.filter(item => item !== $event);
+    this.data.changePersonList(this.persons);
   }
 
 }

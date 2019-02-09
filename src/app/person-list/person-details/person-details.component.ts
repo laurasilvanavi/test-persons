@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from 'src/app/models';
 
 @Component({
@@ -9,10 +9,15 @@ import { Person } from 'src/app/models';
 export class PersonDetailsComponent implements OnInit {
 
   @Input() person: Person;
+  @Output() selectedPersonEvent = new EventEmitter<Person>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  passSelectedPerson(person) {
+    this.selectedPersonEvent.emit(person);
   }
 
 }

@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PersonDetailsComponent } from './person-list/person-details/person-details.component';
+import { GroupListComponent } from './group-list/group-list.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { PersonDetailsComponent } from './person-list/person-details/person-deta
     PersonListComponent,
     AboutComponent,
     PageNotFoundComponent,
-    PersonDetailsComponent
+    PersonDetailsComponent,
+    GroupListComponent
   ],
   imports: [
     BrowserModule,
