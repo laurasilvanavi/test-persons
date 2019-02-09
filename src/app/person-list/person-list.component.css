@@ -6,3 +6,8 @@ td, th {
     border: 1px solid #dddddd;
     padding: 1rem;
   }
+
+.title{
+    padding-top: 2rem;
+    text-align: center;
+}

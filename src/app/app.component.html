@@ -1,21 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Good dayy {{ title }}!
-  </h1>
-  <img width="400" alt="Angular Logo" src="https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg">
-</div>
-<h2>Good part </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://google.com">1</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://google.com">2</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://google.com">3</a></h2>
-  </li>
-</ul>
-<app-person-list></app-person-list>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="about"> About the Project </a>
+      <a class="nav-item nav-link" routerLink="persons"> Participants </a>
+    </div>
+  </div>
+</nav>
 
+<router-outlet></router-outlet>

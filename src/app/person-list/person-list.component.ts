@@ -15,34 +15,31 @@ export class PersonListComponent implements OnInit {
   ngOnInit() {
     this.persons = [{ pid: 10001,
       name: 'Petras',
-      middleName: 'Jonas',
       surname: 'Petrovicius',
       phone: '+37067878787',
-      email: 'petrovic@p.lt'
-      // groups: ['SOS', 'MOPT', 'Important stuff']
+      email: 'petrovic@p.lt',
+      groups: ['SOS', 'Animals help']
 
     },
     { pid: 10002,
       name: 'Kazimieras',
       middleName: 'Jonas',
-      surname: 'Petrovicius',
-      groups: ['SOS', 'MOPT', 'Important stuff']
+      surname: 'Petrauskas',
+      groups: ['MOPT', 'Important stuff', 'Great day']
 
     },
     { pid: 10003,
       name: 'Elena',
-      middleName: 'Jonas',
-      surname: 'Petrovicius',
-      email: 'petrovic@p.lt',
-      groups: ['SOS', 'MOPT', 'Important stuff']
+      middleName: 'Ieva',
+      surname: 'Elenaite',
+      phone: '+37067878787',
 
     },
     { pid: 10004,
-      name: 'Elena',
-      middleName: 'Jonas',
-      surname: 'Petrovicius',
-      phone: '+37067878787',
-      groups: ['SOS', 'MOPT', 'Important stuff']
+      name: 'Irma',
+      surname: 'Petroviciene',
+      email: 'petrovic.irma@p.lt',
+      groups: ['SOS']
     }
   ];
   }

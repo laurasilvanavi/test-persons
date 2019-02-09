@@ -1,30 +1,6 @@
-  All persons who registrated to participate into various events: <br/>
-  List format:
-  <ul>
-    <li *ngFor="let person of persons" [ngStyle]="{'color': person.groups != null && person.groups.length > 0 ? 'green' : 'red'}">
-      {{person.name}} 
-      {{person.middleName}} 
-      {{person.surname}}<br/>
-      <span [hidden]="!person.email && !person.phone"> Contacts: 
-          {{person.email}}
-          {{person.phone}}
-          <br/>
-      </span>
-      {{person.pid}} <br/> 
-      <span *ngIf="person.groups == null"> None groups</span>
-      <span *ngIf="person.groups != null"> {{person.groups.length}} groups: {{person.groups}}</span>
-
-    </li>
-  </ul>
-  Table format <br/>
-  <table>
-    <tr *ngFor="let person of persons" [ngStyle]="{'background-color': person.groups != null && person.groups.length > 0 ? 'green' : 'red'}">
-      <th>{{person.name}} </th>
-      <th>{{person.middleName}} <span *ngIf="person.middleName == null">-</span></th>
-      <th>{{person.surname}}</th>
-      <th>{{person.email}} <span *ngIf="person.email == null">-</span></th>
-      <th>{{person.phone}} <span *ngIf="person.phone == null"> - </span></th>
-      <th>{{person.pid}} </th>
-      <th>{{person.groups}} <span *ngIf="person.groups == null"> None groups</span></th>
-    </tr>
-  </table>
+<p class="font-weight-bold title">All persons who registrated to participate into various events: </p>
+<ul class="list-group list-group-flush" *ngFor="let person of persons">
+  <li class="list-group-item">
+    <app-person-details [person]="person"></app-person-details>
+  </li>
+</ul>
