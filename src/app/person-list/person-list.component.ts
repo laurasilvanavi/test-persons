@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../models';
 import { PersonsDataService } from '../services/persons-data.service';
+import {PersonsService} from "../services/persons.service";
 
 @Component({
   selector: 'app-person-list',
@@ -12,7 +13,7 @@ export class PersonListComponent implements OnInit {
   persons: Person[];
   message: string;
 
-  constructor(private data: PersonsDataService) { }
+  constructor(private data: PersonsDataService, private personsService: PersonsService) { }
 
   ngOnInit() {
 
@@ -57,6 +58,22 @@ export class PersonListComponent implements OnInit {
   removePersonFromList($event) {
     this.persons = this.persons.filter(item => item !== $event);
     this.data.changePersonList(this.persons);
+  }
+
+
+  fetchUsers() {
+    this.personsService.getPersons().subscribe(
+      persons => {
+        console.log(persons);
+        this.data.changePersonList(persons)
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        console.log('completed');
+      }
+    )
   }
 
 }

@@ -4,9 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PersonListComponent } from '../person-list/person-list.component';
 import { AboutComponent } from '../about/about.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import {PersonFormComponent} from "../person-form/person-form.component";
 
 const routes: Routes = [
   { path: 'persons', component: PersonListComponent },
+  { path: 'create-person', component: PersonFormComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

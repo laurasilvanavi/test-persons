@@ -9,6 +9,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PersonDetailsComponent } from './person-list/person-details/person-details.component';
 import { GroupListComponent } from './group-list/group-list.component';
+import {PersonFormComponent} from "./person-form/person-form.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -18,11 +21,15 @@ import { GroupListComponent } from './group-list/group-list.component';
     AboutComponent,
     PageNotFoundComponent,
     PersonDetailsComponent,
-    GroupListComponent
+    GroupListComponent,
+    PersonFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
