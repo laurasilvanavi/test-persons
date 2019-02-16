@@ -54,6 +54,9 @@
       <div *ngIf="personForm.controls.email.hasError('required')" class="alert alert-danger" role="alert">
         Please enter an email
       </div>
+      <div *ngIf="personForm.controls.email.hasError('incorrectMailFormat')" class="alert alert-danger" role="alert">
+        Email format is incorrect
+      </div>
     </div>
 
     <button *ngIf="!isEditForm" [disabled]="personForm.invalid" type="submit" class="btn btn-primary">Submit</button>

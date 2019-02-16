@@ -6,6 +6,7 @@ import {PersonsDataService} from "../services/persons-data.service";
 import {Person} from "../models";
 import {GroupService} from "../services/group.service";
 import {Group} from "../models/group";
+import {CustomValidator} from "../utils/custom-validators";
 
 @Component({
   selector: 'app-person-form',
@@ -77,7 +78,7 @@ export class PersonFormComponent implements OnInit {
       "name": [person ? person.name : '', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       "surname": [person ? person.surname : '', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       "pid": [person ? person.pid : '', Validators.required],
-      "email": [person ? person.email : '', Validators.required]
+      "email": [person ? person.email : '', [Validators.required, CustomValidator.isValidEmailFormat]]
     })
   }
   // Template driven:
