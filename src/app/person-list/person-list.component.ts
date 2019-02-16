@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../models';
 import { PersonsDataService } from '../services/persons-data.service';
 import {PersonsService} from "../services/persons.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-person-list',
@@ -13,7 +14,9 @@ export class PersonListComponent implements OnInit {
   persons: Person[];
   message: string;
 
-  constructor(private data: PersonsDataService, private personsService: PersonsService) { }
+  constructor(private data: PersonsDataService,
+              private personsService: PersonsService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -56,8 +59,21 @@ export class PersonListComponent implements OnInit {
   }
 
   removePersonFromList($event) {
-    this.persons = this.persons.filter(item => item !== $event);
-    this.data.changePersonList(this.persons);
+    console.log($event);
+    this.personsService.removePerson($event.pid).subscribe(
+      res =>{
+        this.persons = this.persons.filter(item => item !== $event);
+        this.data.changePersonList(this.persons);
+      },
+      err => {
+        //show error
+      }
+    );
+  }
+
+  editPerson(person: Person) {
+    console.log("edit");
+    this.router.navigate(['update-person', person.pid]);
   }
 
 

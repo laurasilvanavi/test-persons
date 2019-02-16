@@ -1,7 +1,7 @@
 <p class="font-weight-bold title">All persons who registrated to participate into various events: </p>
 <ul class="list-group list-group-flush" *ngFor="let person of persons">
   <li class="list-group-item">
-    <app-person-details [person]="person" (selectedPersonEvent)="removePersonFromList($event)"></app-person-details>
+    <app-person-details [person]="person" (editPersonEvent)="editPerson(person)" (selectedPersonEvent)="removePersonFromList($event)"></app-person-details>
   </li>
 </ul>
 

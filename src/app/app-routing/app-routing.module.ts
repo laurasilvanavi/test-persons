@@ -8,10 +8,11 @@ import {PersonFormComponent} from "../person-form/person-form.component";
 
 const routes: Routes = [
   { path: 'persons', component: PersonListComponent },
+  { path: 'update-person/:id', component: PersonFormComponent },
   { path: 'create-person', component: PersonFormComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ];
 // export const routingModule: ModuleWithProviders = RouterModule.forRoot(routes);
 

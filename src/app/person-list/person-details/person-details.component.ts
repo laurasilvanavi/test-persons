@@ -10,6 +10,7 @@ export class PersonDetailsComponent implements OnInit {
 
   @Input() person: Person;
   @Output() selectedPersonEvent = new EventEmitter<Person>();
+  @Output() editPersonEvent = new EventEmitter<Person>();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class PersonDetailsComponent implements OnInit {
 
   passSelectedPerson(person) {
     this.selectedPersonEvent.emit(person);
+  }
+
+  editPerson(person) {
+    this.editPersonEvent.emit(person);
   }
 
 }
